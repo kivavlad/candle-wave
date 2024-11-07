@@ -1,50 +1,34 @@
-# React + TypeScript + Vite
+### Описание
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+В репозитории содержится базовый шаблон для выполнения тестового задания.
 
-Currently, two official plugins are available:
+В шаблоне отображены: Переключатель пар, таймфреймов, темы, а также выделена область для отображения графика.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Что нужно сделать:
 
-## Expanding the ESLint configuration
+1. **Форкнуть репозиторий** к себе.
+2. **Реализовать получение исторических данных по выбранной паре** через REST API Binance:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+   - Настроить запрос к REST API Binance для получения данных по выбранной паре.
+   - Обработать полученные данные и подготовить их для отображения на графике.
 
-- Configure the top-level `parserOptions` property like this:
+3. **Реализовать получение данных в реальном времени** по выбранной паре через WebSocket API Binance:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+   - Настроить соединение с WebSocket API Binance.
+   - Обработать входящие сообщения для отображения новых данных на графике.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+4. **Вывести полученные данные на страницу** с использованием библиотеки TradingView Lightweight Charts:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   - Построить график в формате свечей (candlesticks), используя библиотеку.
+   - Обеспечить обновление графика при поступлении новых данных в реальном времени.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+5. **Задеплоить рабочий код** на платформу для развертывания (например, GitHub Pages, Vercel или Netlify).
+
+6. **Прислать ссылки** на:
+   - Репозиторий с кодом.
+   - Рабочую версию приложения.
+
+### Полезные ссылки:
+
+- [Документация Binance API](https://developers.binance.com/docs/derivatives/usds-margined-futures/general-info)
+- [Документация TradingView Lightweight Charts](https://tradingview.github.io/lightweight-charts/docs)
