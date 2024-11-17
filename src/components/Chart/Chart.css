@@ -4,4 +4,10 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  padding: 0 20px;
+}
+
+.graph {
+  height: 100%;
+  width: 100%;
 }
