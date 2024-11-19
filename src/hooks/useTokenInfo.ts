@@ -13,7 +13,7 @@ export const useTokenInfo = ({ symbol, interval }: IProps) => {
   const getHistoricalTokenInfo = async (symbol: string, interval: string) => {
     const response = await api.get(`https://api.binance.com/api/v3/klines?symbol=${symbol}USDT&interval=${interval}`);
     return await response.data.map((item: any) => ({
-      time: Math.floor(item[0] / 1000) as UTCTimestamp,
+      time: (item[0] / 1000) as UTCTimestamp,
       open: parseFloat(item[1]),
       high: parseFloat(item[2]),
       low: parseFloat(item[3]),
@@ -47,7 +47,7 @@ export const useTokenInfo = ({ symbol, interval }: IProps) => {
         if (message.e === "kline") {
           const kline = message.k;
           const newData: CandlestickData = {
-            time: Math.floor(kline.t / 1000) as UTCTimestamp,
+            time: (kline.t / 1000) as UTCTimestamp,
             open: parseFloat(kline.o),
             high: parseFloat(kline.h),
             low: parseFloat(kline.l),
